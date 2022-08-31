@@ -21,6 +21,10 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@aws-cdk/aws-codepipeline": "^1.170.1",
+    "@aws-cdk/aws-codepipeline-actions": "^1.170.1",
+    "@aws-cdk/aws-ecr": "^1.170.1",
+    "@aws-cdk/pipelines": "^1.170.1",
     "@aws-quickstart/eks-blueprints": "^1.2.0",
     "aws-cdk-lib": "2.37.1",
     "constructs": "^10.0.0",
