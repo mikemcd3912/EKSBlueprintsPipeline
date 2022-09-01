@@ -13,8 +13,8 @@ export default class ServiceInfraStack extends Stack {
 
     const table = new dynamodb.Table(this, 'Posts', {
         partitionKey: {
-            name: 'post_id',
-            type: dynamodb.AttributeType.NUMBER
+            name: 'postid',
+            type: dynamodb.AttributeType.STRING
         },
     })
     

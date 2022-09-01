@@ -9,12 +9,16 @@ export default class ClusterConstruct extends Construct {
 
     const account = props?.env?.account!;
     const region = props?.env?.region!;
+    const argo = new blueprints.ArgoCDAddOn();
 
     const blueprint = blueprints.EksBlueprint.builder()
     .account(account)
     .region(region)
-    .addOns()
+    .addOns(argo)
     .teams()
     .build(scope, id+'-stack');
+    
   }
+  
+  
 }

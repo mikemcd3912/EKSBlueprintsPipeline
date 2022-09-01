@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backendapi
+  labels:
+    app: backendapi
+  namespace: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backendapi
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: backendapi
+    spec:
+      serviceAccountName: dynamo-access
+      containers:
+      - image: ${IMAGE}
+        imagePullPolicy: Always
+        name: backendapi
+        ports:
+        - containerPort: 80
+          protocol: TCP
