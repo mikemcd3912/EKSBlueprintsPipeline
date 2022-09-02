@@ -12,15 +12,20 @@ export default class PipelineConstruct extends Construct {
     const region = props?.env?.region!;
     
     const adminTeam = new PlatformTeam( {
-    name: "adminteam", // make sure this is unique within organization
-    userRoleArn: 'arn:aws:iam::'+account+':role/Admin'
-})
+        name: "adminteam", // make sure this is unique within organization
+        userRoleArn: 'arn:aws:iam::'+account+':role/Admin'
+    })
 
+    const cloud9 = new PlatformTeam( {
+        name: "adminteam", // make sure this is unique within organization
+        userRoleArn: 'arn:aws:iam::'+account+':role/dev-dev-blueprint-devblueprintMastersRole2DDF8CFC-VFC9LIYTLHPV'
+    })
+    
     const blueprint = blueprints.EksBlueprint.builder()
     .account(account)
     .region(region)
     .addOns()
-    .teams(adminTeam);
+    .teams(adminTeam, cloud9);
   
       // HERE WE ADD THE ARGOCD APP OF APPS REPO INFORMATION
     const repoUrl = 'https://github.com/mikemcd3912/EKSBlueprintsPipeline.git';
