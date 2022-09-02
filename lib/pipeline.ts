@@ -19,7 +19,7 @@ export default class PipelineConstruct extends Construct {
     const blueprint = blueprints.EksBlueprint.builder()
     .account(account)
     .region(region)
-    .addOns()
+    .addOns(new blueprints.ClusterAutoScalerAddOn)
     .teams(adminTeam);
   
       // HERE WE ADD THE ARGOCD APP OF APPS REPO INFORMATION
