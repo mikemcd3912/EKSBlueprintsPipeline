@@ -22,6 +22,35 @@ export default class PipelineConstruct extends Construct {
     .addOns()
     .teams(adminTeam);
   
+      // HERE WE ADD THE ARGOCD APP OF APPS REPO INFORMATION
+    const repoUrl = 'https://github.com/mikemcd3912/EKSBlueprintsPipeline.git';
+
+    const bootstrapRepo : blueprints.ApplicationRepository = {
+        repoUrl,
+        targetRevision: 'workshop',
+    }
+
+    // HERE WE GENERATE THE ADDON CONFIGURATIONS
+    const devBootstrapArgo = new blueprints.ArgoCDAddOn({
+        bootstrapRepo: {
+            ...bootstrapRepo,
+            path: 'envs/dev'
+        },
+    });
+    const testBootstrapArgo = new blueprints.ArgoCDAddOn({
+        bootstrapRepo: {
+            ...bootstrapRepo,
+            path: 'envs/test'
+        },
+    });
+    const prodBootstrapArgo = new blueprints.ArgoCDAddOn({
+        bootstrapRepo: {
+            ...bootstrapRepo,
+            path: 'envs/prod'
+        },
+    });
+  
+  
     blueprints.CodePipelineStack.builder()
       .name("containers-capstone-pipeline")
       .owner("mikemcd3912")
