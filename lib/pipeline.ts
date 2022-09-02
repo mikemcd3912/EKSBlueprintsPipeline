@@ -17,7 +17,7 @@ export default class PipelineConstruct extends Construct {
     })
 
     const cloud9 = new PlatformTeam( {
-        name: "adminteam", // make sure this is unique within organization
+        name: "cloud9", // make sure this is unique within organization
         userRoleArn: 'arn:aws:iam::'+account+':role/dev-dev-blueprint-devblueprintMastersRole2DDF8CFC-VFC9LIYTLHPV'
     })
     
