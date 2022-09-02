@@ -4,7 +4,6 @@ metadata:
   name: backendapi
   labels:
     app: backendapi
-  namespace: api
 spec:
   replicas: 1
   selector:
@@ -20,9 +19,8 @@ spec:
       labels:
         app: backendapi
     spec:
-      serviceAccountName: dynamo-access
       containers:
-      - image: ${IMAGE}
+      - image: 359322168451.dkr.ecr.us-west-2.amazonaws.com/capstone:backend_api
         imagePullPolicy: Always
         name: backendapi
         ports:
