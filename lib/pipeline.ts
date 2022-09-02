@@ -15,7 +15,7 @@ export default class PipelineConstruct extends Construct {
     .account(account)
     .region(region)
     .addOns()
-    .teams(new TeamPlatform(account));
+    .teams();
   
     blueprints.CodePipelineStack.builder()
       .name("containers-capstone-pipeline")
