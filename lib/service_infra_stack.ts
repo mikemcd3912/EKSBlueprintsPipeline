@@ -18,9 +18,9 @@ export default class ServiceInfraStack extends Stack {
         },
     })
     
-    const repository = new ecr.Repository(this, 'Repo', {
-      repositoryName: "capstone",
-      imageScanOnPush: true,
-    });
+    // const repository = new ecr.Repository(this, 'Repo', {
+    //   repositoryName: "capstone",
+    //   imageScanOnPush: true,
+    // });
   }
 }
