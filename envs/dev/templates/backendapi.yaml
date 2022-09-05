@@ -11,7 +11,7 @@ spec:
     namespace: backendapi
     server: {{ .Values.spec.destination.server }}
   source:
-    repoURL: {{ .Values.spec.source.repoURL }}
+    repoURL: https://github.com/mikemcd3912/UnicornTraderAPI/
     targetRevision: {{ .Values.spec.source.targetRevision }}
     path: apideployment
     helm:

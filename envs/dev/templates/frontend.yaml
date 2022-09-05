@@ -11,7 +11,7 @@ spec:
     namespace: frontend
     server: {{ .Values.spec.destination.server }}
   source:
-    repoURL: {{ .Values.spec.source.repoURL }}
+    repoURL: https://github.com/mikemcd3912/Unicorntrader
     targetRevision: {{ .Values.spec.source.targetRevision }}
     path: frontend
     helm:
